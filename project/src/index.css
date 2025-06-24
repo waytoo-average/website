@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes gradient-text {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes count-up {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-text 3s ease infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.animate-count-up {
+  animation: count-up 0.8s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Custom scrollbar for light mode */
+.light ::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  .prose {
+    font-size: 14px;
+  }
+  
+  /* Ensure text is readable on small screens */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+  
+  /* Better touch targets for mobile */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Better mobile text selection */
+::selection {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+/* Better mobile form inputs */
+@media (max-width: 640px) {
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .space-x-2 > * + * {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir="rtl"] .space-x-4 > * + * {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+[dir="rtl"] .space-x-6 > * + * {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+[dir="rtl"] .space-x-8 > * + * {
+  margin-left: 0;
+  margin-right: 2rem;
+}
+
+/* Enhanced Light Mode Styles */
+.light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  color: rgb(17 24 39);
+}
+
+/* Light mode background improvements */
+.light .bg-gray-900 {
+  background-color: rgb(249 250 251);
+}
+
+.light .bg-gray-800 {
+  background-color: rgb(255 255 255);
+}
+
+.light .bg-gray-800\/50 {
+  background-color: rgb(255 255 255 / 0.8);
+}
+
+.light .bg-gray-800\/95 {
+  background-color: rgb(255 255 255 / 0.95);
+}
+
+/* Light mode text improvements */
+.light .text-white {
+  color: rgb(17 24 39);
+}
+
+.light .text-gray-400 {
+  color: rgb(75 85 99);
+}
+
+.light .text-gray-300 {
+  color: rgb(55 65 81);
+}
+
+.light .text-gray-500 {
+  color: rgb(107 114 128);
+}
+
+/* Light mode border improvements */
+.light .border-gray-800 {
+  border-color: rgb(229 231 235);
+}
+
+.light .border-gray-700 {
+  border-color: rgb(209 213 219);
+}
+
+.light .border-gray-700\/50 {
+  border-color: rgb(209 213 219 / 0.5);
+}
+
+.light .border-gray-600 {
+  border-color: rgb(156 163 175);
+}
+
+/* Light mode hover states */
+.light .hover\:bg-gray-700:hover {
+  background-color: rgb(243 244 246);
+}
+
+.light .hover\:bg-gray-800:hover {
+  background-color: rgb(255 255 255);
+}
+
+.light .hover\:text-white:hover {
+  color: rgb(17 24 39);
+}
+
+.light .group-hover\:text-gray-300:hover {
+  color: rgb(55 65 81);
+}
+
+/* Light mode component specific styles */
+.light .bg-gray-200\/50 {
+  background-color: rgb(229 231 235 / 0.8);
+}
+
+.light .hover\:bg-gray-300\/50:hover {
+  background-color: rgb(209 213 219 / 0.8);
+}
+
+/* Enhanced shadows for light mode */
+.light .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+}
+
+.light .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+}
+
+.light .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Theme transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Arabic font support */
+[dir="rtl"] {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Arabic UI Text', 'SF Arabic', 'Helvetica Neue', Arial;
+}
+
+/* Better Arabic text rendering */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+[dir="rtl"] p {
+  line-height: 1.7;
+}
+
+/* RTL-specific spacing utilities */
+.rtl\:space-x-reverse > * + * {
+  --tw-space-x-reverse: 1;
+}
+
+.rtl\:space-x-reverse > * + * {
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+/* Light mode gradient background fix */
+.light .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, rgb(249 250 251), rgb(243 244 246));
+}
+
+/* Improved contrast for light mode buttons */
+.light .border-gray-400 {
+  border-color: rgb(156 163 175);
+}
+
+.light .hover\:border-blue-400:hover {
+  border-color: rgb(96 165 250);
+}
